@@ -78,8 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function createTaskRow(task, isPending, idx) {
     const row = document.createElement("div");
     row.className = "row align-items-center flex w-100 task-row";
-    row.style.marginTop = "20px";
+    row.style.marginTop = "30px";
     row.style.overflowX = "auto";
+    row.style.paddingTop = "30px";
     const deadlineColor = getDeadlineColor(task.deadline);
     const titleColor = deadlineColor;
     const descColor = deadlineColor;
@@ -189,14 +190,44 @@ document.addEventListener("DOMContentLoaded", function () {
     // Clear
     pendingContainer.innerHTML = "";
     completedContainer.innerHTML = "";
+    // Sort pending by deadline (closest first, empty or invalid deadlines last)
+    const sortedPending = [...pendingTasks].sort((a, b) => {
+      const da =
+        a.deadline && !isNaN(new Date(a.deadline))
+          ? new Date(a.deadline)
+          : null;
+      const db =
+        b.deadline && !isNaN(new Date(b.deadline))
+          ? new Date(b.deadline)
+          : null;
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return da - db;
+    });
+    // Sort completed by deadline (closest first, empty or invalid deadlines last)
+    const sortedCompleted = [...completedTasks].sort((a, b) => {
+      const da =
+        a.deadline && !isNaN(new Date(a.deadline))
+          ? new Date(a.deadline)
+          : null;
+      const db =
+        b.deadline && !isNaN(new Date(b.deadline))
+          ? new Date(b.deadline)
+          : null;
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return da - db;
+    });
     // Render pending
-    pendingTasks.forEach((task, idx) => {
-      const row = createTaskRow(task, true, idx);
+    sortedPending.forEach((task, idx) => {
+      const row = createTaskRow(task, true, pendingTasks.indexOf(task));
       pendingContainer.appendChild(row);
     });
     // Render completed
-    completedTasks.forEach((task, idx) => {
-      const row = createTaskRow(task, false, idx);
+    sortedCompleted.forEach((task, idx) => {
+      const row = createTaskRow(task, false, completedTasks.indexOf(task));
       completedContainer.appendChild(row);
     });
   }
