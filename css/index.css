@@ -8,8 +8,51 @@ body {
   padding: 20px;
   text-align: center;
   margin-top: 20px;
-  margin-left: 20%;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.header h1 {
+  flex: 0 1 auto;
+  margin: 0;
+  width: auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #333;
+  display: inline-block;
+}
+.button.plus-btn {
+  margin-left: 18px;
+  background: linear-gradient(
+    135deg,
+    #5c6bc0 0%,
+    #26a69a 100%
+  ); /* matte blue-green */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.18);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+}
+.button.plus-btn:hover {
+  background: linear-gradient(135deg, #26a69a 0%, #5c6bc0 100%);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.28);
+  transform: scale(1.08);
 }
 .task {
   background-color: #add8e6;
@@ -121,4 +164,118 @@ button.button {
 button.button:hover {
   border-bottom: #a99567 1px solid;
   color: #a99567;
+}
+
+/* Modal input improvements */
+#modalOne .contact-form input[type="text"],
+#modalOne .contact-form input[type="datetime-local"],
+#modalOne .contact-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: #f9f9f9;
+  color: #222;
+  transition: border-color 0.2s;
+}
+#modalOne .contact-form input[type="text"]:focus,
+#modalOne .contact-form input[type="datetime-local"]:focus,
+#modalOne .contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background: #fff;
+}
+#modalOne .contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Modal form label */
+#modalOne .contact-form span {
+  font-weight: 500;
+  margin-top: 8px;
+  display: block;
+  color: #333;
+}
+
+/* Modal submit button */
+#modalOne .contact-form button[type="submit"] {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#modalOne .contact-form button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Done button improvements - matte blue-green */
+.btn-done {
+  background: linear-gradient(90deg, #5c6bc0 60%, #26a69a 100%);
+  color: #fff !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 6px 22px !important;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-done:hover {
+  background: linear-gradient(90deg, #26a69a 60%, #5c6bc0 100%);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.16);
+}
+
+/* Remove button style - matte red */
+.btn-remove {
+  background: linear-gradient(135deg, #f44336 0%, #e57373 100%);
+  color: #fff !important;
+  border: none !important;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-left: 8px;
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.12);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  cursor: pointer;
+  outline: none;
+}
+.btn-remove:hover {
+  background: linear-gradient(135deg, #e57373 0%, #f44336 100%);
+  box-shadow: 0 4px 16px rgba(244, 67, 54, 0.22);
+  transform: scale(1.08);
+}
+
+/* Tooltip for ToDo description on hover */
+.toDo .desc-tooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  background: #fffbe6;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 200px;
+  max-width: 350px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  white-space: normal;
+}
+.toDo:hover .desc-tooltip {
+  display: block;
 }

@@ -14,120 +14,48 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>ToDo App
-          <button class="button" data-modal="modalOne">+</h1>
-            <div id="modalOne" class="modal">
-      <div class="modal-content">
-        <div class="contact-form">
-          <a class="close" style="position:realative; left:30px">&times;</a>
-          <form action="/">
-            <h2>Add a new Task</h2>
-            <div>
-              
-              <input type="text" name="ToDo" placeholder="Task" />
-              <input type="datetime-local" name="name" placeholder="Deadline" />
-            </div>
-            <span>Description</span>
-            <div>
-              <textarea rows="4"></textarea>
-            </div>
-            <button type="submit" href="/">Submit</button>
-          </form>
+        <h1>ToDo App</h1>
+        <button class="button plus-btn" data-modal="modalOne">+</button>
+      </div>
+      <div id="modalOne" class="modal">
+        <div class="modal-content">
+          <div class="contact-form">
+            <a class="close" style="position:relative; left:30px">&times;</a>
+            <form action="/">
+              <h2>Add a new Task</h2>
+              <div>
+                
+                <input type="text" name="ToDo" placeholder="Task" />
+                <input type="datetime-local" name="name" placeholder="Deadline" />
+              </div>
+              <span>Description</span>
+              <div>
+                <textarea rows="4"></textarea>
+              </div>
+              <button type="submit" href="/">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
 
 
 
 
-      </div>
     </div>
 
     <div class="container" style="margin-top:60px;">
-      <div class="row justify-content-center" style="margin-top: 30px;">
-        <div class="col-lg-2 col-auto task date">
-          <h5>Date</h5>
-        </div>
-        <div class="col-lg-5 col-auto task toDo">
-          <h5>ToDo</h5>
-        </div>
-        <div class="col-lg-2 col-auto task deadline">
-          <h5>Deadline</h5>
-        </div>
-        <div class="col-lg-1 col-auto task hello">
-          <h5>Done</h5>
-        </div>
-      </div>
-
-      <div class="row justify-content-center" style="margin-top: 40px;">
-        <div class="col-lg-2 col-auto task date">
-          <h5>10/06/2025</h5>
-        </div>
-        <div class="col-lg-5 col-auto task toDo">
-          <h5>Create a ToDo App.</h5>
-        </div>
-        <div class="col-lg-2 col-auto task deadline">
-          <h5>17/06/2025</h5>
-        </div>
-        <div class="col-lg-1 col-auto task hello">
-          <div style="justify-content: center;">
-          <h5><button class="btn btn-outline-warning">Done</button></h5>
-        </div>
-        </div>
-      </div>
-      <div class="row justify-content-center" style="margin-top: 40px;">
-        <div class="col-lg-2 col-auto task date">
-          <h5>10/06/2025</h5>
-        </div>
-        <div class="col-lg-5 col-auto task toDo">
-          <h5>Create a ToDo App.</h5>
-        </div>
-        <div class="col-lg-2 col-auto task deadline">
-          <h5>17/06/2025</h5>
-        </div>
-        <div class="col-lg-1 col-auto task hello">
-          <div style="justify-content: center;">
-          <h5><button class="btn btn-outline-warning">Done</button></h5>
-        </div>
-        </div>
-      </div>
-      <div class="row justify-content-center" style="margin-top: 40px;">
-        <div class="col-lg-2 col-auto task date">
-          <h5>10/06/2025</h5>
-        </div>
-        <div class="col-lg-5 col-auto task toDo">
-          <h5>Create a ToDo App.</h5>
-        </div>
-        <div class="col-lg-2 col-auto task deadline">
-          <h5>17/06/2025</h5>
-        </div>
-        <div class="col-lg-1 col-auto task hello">
-          <div style="justify-content: center;">
-          <h5><button class="btn btn-outline-warning">Done</button></h5>
-        </div>
-        </div>
-      </div>
-      <div class="row justify-content-center" style="margin-top: 40px;">
-        <div class="col-lg-2 col-auto task date">
-          <h5>10/06/2025</h5>
-        </div>
-        <div class="col-lg-5 col-auto task toDo">
-          <h5>Create a ToDo App.</h5>
-        </div>
-        <div class="col-lg-2 col-auto task deadline">
-          <h5>17/06/2025</h5>
-        </div>
-        <div class="col-lg-1 col-auto task hello">
-          <div style="justify-content: center;">
-          <h5><button class="btn btn-outline-warning">Done</button></h5>
-        </div>
-        </div>
-      </div>
+      <h2 class="task" style="margin-top:100px">Pending Task</h2>
+      <div class="row justify-content-center" id="pending-tasks" style="margin-top: 30px;"></div>
+    </div>
+    <div class="container" style="margin-top:60px;">
+      <h2 class="task" style="margin-top:100px">Completed Task</h2>
+      <div class="row justify-content-center" id="completed-tasks" style="margin-top: 40px;"></div>
+    </div>
     </div>
 
     
   </body>
-  <script src="../js/index.js"
+  <script src="../js/index.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>s
